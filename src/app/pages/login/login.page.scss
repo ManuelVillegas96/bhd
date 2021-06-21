@@ -1,0 +1,38 @@
+.logo-e {
+  max-width: 60vw;
+  margin: auto;
+}
+
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullheight {
+  height: 100%;
+  background-image:
+    linear-gradient(to bottom, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0.73)),
+    url('../../../assets/images/bkg.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+ion-list{
+    width: 100%;
+}
+
+ion-list, ion-item, ion-row {
+    background: transparent !important;
+}
+
+ion-item {
+    --ion-background-color: transparent !important
+  }
+
+.hcs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

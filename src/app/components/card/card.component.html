@@ -1,0 +1,174 @@
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start" mode="md">
+      <ion-buttons slot="start">
+        <ion-button (click)="dismiss()">
+          <ion-icon
+            slot="icon-only"
+            name="arrow-back-outline"
+            color="success"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Detalle de producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list-header class="ion-margin-bottom" mode="ios">
+    <ion-label color="medium">Mis Tarjetas</ion-label>
+  </ion-list-header>
+
+  <ion-row>
+    <ion-col>
+      <ion-card class="card card-{{ index }} card-big">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="../../../assets/images/logos/imagotipo_white.svg" />
+          </ion-avatar>
+          <ion-label slot="end" class="ion-text-right">
+            <img
+              class="productBrand"
+              *ngIf="card.productBrand === 'Mastercard'"
+              src="../../../assets/images/mastercard.svg"
+            />
+            <img
+              class="productBrand"
+              *ngIf="card.productBrand === 'Visa'"
+              src="../../../assets/images/visa.svg"
+            />
+          </ion-label>
+        </ion-item>
+        <ion-card-header>
+          <h4 class="light-color ion-text-center">
+            {{ card.productNumber | mask: "0000 0000 0000 0000" }}
+          </h4>
+        </ion-card-header>
+        <ion-card-content> </ion-card-content>
+
+        <ion-footer>
+          <ion-item lines="none">
+            <ion-label slot="start" color="light">
+              <h3>{{ card.clientName }}</h3>
+            </ion-label>
+            <ion-label color="light">
+              <p class="ion-text-left">Fecha de V.</p>
+              <h3 class="ion-text-left">{{ card.productEndingDate }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-footer>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="6">
+      <!-- Segment with default selection -->
+      <ion-segment
+        (ionChange)="segmentChanged($event)"
+        [(ngModel)]="type"
+        value="rd"
+        mode="ios"
+        color="primary"
+        class="ion-margin-top"
+      >
+        <ion-segment-button value="rd" checked>
+          <ion-label>
+            <h3>RD</h3>
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="us">
+          <ion-label>
+            <h3>US</h3>
+          </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div [ngSwitch]="type">
+        <ion-list *ngSwitchCase="'rd'" lines="none">
+          <ion-item lines="none" class="ion-no-border">
+            <ion-progress-bar color="primary" [value]="xrd"></ion-progress-bar>
+          </ion-item>
+          <ion-item>
+            <ion-label slot="start" position="fixed" class="ion-no-border">
+              <h5 class="ion-text-center">
+                RD$ {{ card.BalanceRD | number: "1.2-2" }}
+              </h5>
+              <p class="medium-color ion-text-center">Consumido</p>
+            </ion-label>
+            <ion-label slot="end" position="fixed" class="ion-no-border">
+              <h5 class="primary-color ion-text-center">
+                RD$ {{ card.LimitRD - card.BalanceRD | number: "1.2-2" }}
+              </h5>
+              <p class="medium-color ion-text-center">Disponible</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'us'" lines="none">
+          <ion-item lines="none" class="ion-no-border">
+            <ion-progress-bar color="primary" [value]="xus"></ion-progress-bar>
+          </ion-item>
+          <ion-item>
+            <ion-label slot="start" position="fixed" class="ion-no-border">
+              <h5 class="ion-text-center">
+                US$ {{ card.BalanceUS | number: "1.2-2" }}
+              </h5>
+              <p class="medium-color ion-text-center">Consumido</p>
+            </ion-label>
+            <ion-label slot="end" position="fixed" class="ion-no-border">
+              <h5 class="primary-color ion-text-center">
+                US$ {{ card.LimitUS - card.BalanceUS | number: "1.2-2" }}
+              </h5>
+              <p class="medium-color ion-text-center">Disponible</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-button
+        *ngIf="!loading"
+        (click)="payment()"
+        expand="block"
+        fill="outline"
+        color="primary"
+        class="fullwidth"
+        size="large"
+      >
+        Pagar
+      </ion-button>
+      <ion-button
+        *ngIf="loading"
+        disabled="true"
+        expand="block"
+        fill="outline"
+        color="primary"
+        class="fullwidth"
+        size="large"
+      >
+        <ion-spinner name="lines" color="primary"></ion-spinner>
+      </ion-button>
+    </ion-col>
+    <!-- <ion-item lines="none">
+      <ion-label class="ion-text-center">
+        <ion-icon
+          slot="icon-only"
+          name="checkmark-outline"
+          color="success"
+          class="succes-icon"
+          size="large"
+        ></ion-icon>
+        <h3 class="primary-color ion-text-center">Pago exitoso</h3>
+        <p class="ion-text-center ion-text-wrap">
+          El pago de tu tarjeta de crédito ha realizado con exito
+        </p>
+      </ion-label>
+    </ion-item> -->
+  </ion-row>
+</ion-content>

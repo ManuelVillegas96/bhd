@@ -1,0 +1,69 @@
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar class="primary-toolbar">
+    <ion-title class="ion-text-center"> Mis productos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header class="ion-margin-bottom" mode="ios">
+    <ion-label color="medium">Mis Tarjetas</ion-label>
+  </ion-list-header>
+
+  <div *ngIf="!isloading">
+    <ion-slides
+      mode="ios"
+      pager="ios"
+      scrollbar="ios"
+      [options]="skeletonSlide"
+      class="ion-margin-bottom"
+    >
+      <ion-slide *ngFor="let item of [1,1,1,1,1]">
+        <ion-skeleton-text animated style="height: 280px"></ion-skeleton-text>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-list lines="none">
+      <ion-item *ngFor="let item of [1,1,1,1,1]">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+        <ion-skeleton-text
+          slot="end"
+          animated
+          style="width: 20%"
+        ></ion-skeleton-text>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="isloading">
+    <app-cards [cards]="cards"></app-cards>
+
+    <ion-list lines="none">
+      <ion-list-header class="ion-margin-bottom"  mode="ios">
+        <ion-label color="medium">Transacciones</ion-label>
+      </ion-list-header>
+  
+      <ion-item *ngFor="let tran of transactions; let t = index">
+          <ion-icon name="arrow-down-outline" color="danger" slot="start" class="down" *ngIf="tran.transactionType === 1"></ion-icon>
+          <ion-icon name="arrow-up-outline" color="success" slot="start" class="up" *ngIf="tran.transactionType === 2"></ion-icon>
+        <ion-label>
+          <h5 class="">{{ tran.description }}</h5>
+          <p class="medium-color">{{ tran.date | date:'MMMM d' }}</p>
+        </ion-label>
+        <ion-label slot="end">
+          <h4 class="danger-color ion-text-right" *ngIf="tran.transactionType === 1">-RD$ {{ tran.amount | number : '1.2-2' }}</h4>
+          <h4 class="success-color ion-text-right" *ngIf="tran.transactionType === 2">+RD$ {{ tran.amount | number : '1.2-2' }}</h4>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

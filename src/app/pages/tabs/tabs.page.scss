@@ -1,0 +1,11 @@
+ion-tab-bar {
+    border-radius: 32pt 32pt 0 0;
+}
+
+ion-tab-bar ion-tab-button:first-child {
+    border-radius: 32pt 0 0 0;
+}
+
+ion-tab-bar ion-tab-button:last-child {
+    border-radius: 0 32pt 0 0;
+}

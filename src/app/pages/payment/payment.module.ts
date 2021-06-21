@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
-  
-import { LoginPage } from './login.page';
+import { PaymentPageRoutingModule } from './payment-routing.module';
+
+import { PaymentPage } from './payment.page';
 import { MaterialModule } from '../../material.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { MaterialModule } from '../../material.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
+    PaymentPageRoutingModule,
     MaterialModule
   ],
-  declarations: [LoginPage]
+  declarations: [PaymentPage]
 })
-export class LoginPageModule {}
+export class PaymentPageModule {}

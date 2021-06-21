@@ -1,3 +1,45 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu
+    side="start"
+    menuId="custom"
+    contentId="main"
+    class="my-custom-menu"
+  >
+    <ion-header>
+      <ion-toolbar class="ion-align-items-center ion-justify-content-center">
+        <img
+          src="../assets/images/logos/logo_horizontal.svg"
+          class="menu-logo"
+        />
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="light">
+      <div class="xc fullheight fullwidth ion-padding">
+        <div class="hcs fullwidth">
+          <ion-list>
+            <ion-item class="" lines="none">
+              <ion-icon name="location-outline" color="primary" slot="start"></ion-icon>
+              <ion-label>
+                <h5 class="medium-color">Sucursales</h5>
+              </ion-label>
+            </ion-item>
+            <ion-item class="" lines="none">
+              <ion-icon name="call-outline" color="primary" slot="start"></ion-icon>
+              <ion-label>
+                <h5 class="medium-color">Contactanos</h5>
+              </ion-label>
+            </ion-item>
+            <ion-item class="" lines="none">
+              <ion-icon name="options-outline" color="primary" slot="start"></ion-icon>
+              <ion-label>
+                <h5 class="medium-color">Divisas</h5>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

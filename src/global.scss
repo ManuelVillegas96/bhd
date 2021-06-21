@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,55 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-segment-button,
+ion-segment {
+  --background-checked: var(--ion-color-primary);
+  --color-checked: var(--ion-color-primary-contrast);
+  --indicator-color: transparent;
+}
+
+.pay-alert {
+  --background: var(
+    --ion-overlay-background-color,
+    var(--ion-background-color, #fff)
+  );
+  --width: 100%;
+  --max-width: 100%;
+  --border-radius: 16pt 16pt 0pt 0pt;
+  font-size: 14px;
+  align-items: flex-end;
+}
+
+.pay-alert .alert-wrapper.sc-ion-alert-md {
+  border-radius: 16pt 16pt 0pt 0pt;
+}
+
+.pay-alert ion-item .item-inner {
+    border: none !important;
+}
+
+.succes-icon {
+  --ionicon-stroke-width: 48px;
+  background-color: rgb(73 183 66 / 5%);
+  padding: 16pt;
+  border-radius: 50pt;
+  font-size: 14pt;
+  margin: 6pt auto;
+  color: var(--ion-color-primary) ;
+}
+
+.outline-alert-dismiss {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--ion-color-primary) !important;
+    border-radius: 10pt !important;
+    text-align: center !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    color: var(--ion-color-primary) !important;
+}
+
+.outline-alert-dismiss .alert-button-inner.sc-ion-alert-md {
+    justify-content: center;
+}

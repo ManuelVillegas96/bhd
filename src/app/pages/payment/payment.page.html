@@ -1,0 +1,49 @@
+<!-- <ion-header mode="ios" [translucent]="true">
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Detalle de producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header class="ion-margin-bottom" mode="ios">
+    <ion-label color="medium">Mis Tarjetas</ion-label>
+  </ion-list-header>
+
+  <ion-card class="card card-{{ clas }}" [routerLink]="['/payment/' + card.productNumber]" routerLinkActive="active">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img src="../../../assets/images/logos/imagotipo_white.svg" />
+      </ion-avatar>
+      <ion-label slot="end" color="light">
+        <h3>**** {{ card.productNumber | slice: -4 }}</h3>
+      </ion-label>
+    </ion-item>
+    <ion-card-header>
+      <h4 class="light-color">
+        RD$ {{ card.BalanceRD | number : '1.2-2' }}
+      </h4>
+      <h4 class="light-color" *ngIf=" card.BalanceUS">
+        US$ {{ card.BalanceUS | number : '1.2-2' }}
+      </h4>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+
+    <ion-footer>
+      <ion-item lines="none">
+        <img class="productBrand"
+            *ngIf="card.productBrand === 'Mastercard'"
+            src="../../../assets/images/mastercard.svg"
+          />
+          <img class="productBrand"
+            *ngIf="card.productBrand === 'Visa'"
+            src="../../../assets/images/visa.svg"
+          />
+      </ion-item>
+    </ion-footer>
+  </ion-card>
+
+
+</ion-content> -->

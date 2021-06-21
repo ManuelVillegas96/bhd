@@ -1,0 +1,45 @@
+<ion-slides
+      mode="ios"
+      pager="ios"
+      scrollbar="ios"
+      [options]="skeletonSlide"
+      class="ion-margin-bottom"
+    >
+      <ion-slide
+        *ngFor="let card of cards; let i = index"
+        class="ion-padding-start"
+      >
+        <ion-card class="card card-{{ i }}" (click)="presentModal(card, i)">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img src="../../../assets/images/logos/imagotipo_white.svg" />
+            </ion-avatar>
+            <ion-label slot="end" color="light">
+              <h3>**** {{ card.productNumber | slice: -4 }}</h3>
+            </ion-label>
+          </ion-item>
+          <ion-card-header>
+            <h4 class="light-color">
+              RD$ {{ card.BalanceRD | number : '1.2-2' }}
+            </h4>
+            <h4 class="light-color" *ngIf=" card.BalanceUS">
+              US$ {{ card.BalanceUS | number : '1.2-2' }}
+            </h4>
+          </ion-card-header>
+          <ion-card-content> </ion-card-content>
+
+          <ion-footer>
+            <ion-item lines="none">
+              <img class="productBrand"
+                  *ngIf="card.productBrand === 'Mastercard'"
+                  src="../../../assets/images/mastercard.svg"
+                />
+                <img class="productBrand"
+                  *ngIf="card.productBrand === 'Visa'"
+                  src="../../../assets/images/visa.svg"
+                />
+            </ion-item>
+          </ion-footer>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>

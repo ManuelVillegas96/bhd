@@ -1,0 +1,113 @@
+ion-toolbar.primary-toolbar {
+  --border-color: var(--ion-color-primary);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+ion-button {
+  --border-radius: 16pt !important;
+}
+
+ion-content {
+  --background: #f5f5f5;
+}
+
+ion-content.light {
+  --background: #ffffff;
+}
+
+ion-list,
+ion-list-header,
+ion-item,
+ion-label {
+  --background: transparent !important;
+}
+.list-ios, .list-md  {
+  background: transparent !important;
+}
+.menu-logo {
+  max-width: 120pt;
+  margin: 12pt auto;
+  display: block;
+}
+
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullheight {
+  height: 100%;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.hcs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+ion-menu::part(container) {
+  border-radius: 0pt 16pt 16pt 0pt;
+}
+
+.card-0 {
+  background-color: #61c05a;
+  background-image: radial-gradient(
+    circle farthest-corner at 104% -7%,
+    #61c05a 40%,
+    #61c05a 80%,
+    #49b742 80%
+  );
+}
+
+.card-1 {
+  background-color: #b78842;
+  background-image: linear-gradient(315deg, #b78842 0%, #f7ce68 100%);
+}
+.card-2 {
+  background-color: #f4d03f;
+  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+}
+.card-3 {
+  background-color: #fad961;
+  background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+}
+
+ion-card.card {
+  height: 280px;
+  width: 100%;
+  max-width: 192pt;
+  min-width: 48pt;
+  float: left;
+  background-color: cadetblue;
+  border-radius: 24pt;
+  margin: 0 !important;
+  padding: 14pt 4pt;
+}
+
+ion-card.card.card-big {
+  max-width: none;
+  min-width: none;
+}
+
+ion-card.card ion-footer {
+  position: absolute !important;
+  bottom: 16pt;
+}
+
+.e-bank-image {
+  background-image: url("../assets/images/logos/imagotipo_white.svg");
+  background-size: contain;
+}
+
+.productBrand {
+  max-width: 28pt;
+}
+
